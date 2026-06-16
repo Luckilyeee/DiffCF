@@ -1,0 +1,77 @@
+base_config: configs/coffee.yaml
+
+stages:
+  - train_classifier
+  - train_diffusion
+  - generate_cf
+  - evaluate
+
+datasets:
+  - name: Coffee
+    length: 286
+    num_classes: 2
+    run_name: coffee_run
+    batch_size: 28
+    gpu: 0
+  - name: GunPoint
+    length: 150
+    num_classes: 2
+    run_name: gunpoint_run
+    batch_size: 16
+    gpu: 1
+  - name: ECG200
+    run_name: ecg200_run
+    batch_size: 16
+    gpu: 2
+  - name: TwoLeadECG
+    length: 82
+    num_classes: 2
+    run_name: twoleadecg_run
+    batch_size: 23
+    gpu: 3
+  - name: BirdChicken
+    length: 512
+    num_classes: 2
+    run_name: birdchicken_run
+    batch_size: 20
+    gpu: 4
+  - name: BeetleFly
+    length: 512
+    num_classes: 2
+    run_name: beetlefly_run
+    batch_size: 20
+    gpu: 5
+  - name: Plane
+    length: 144
+    num_classes: 7
+    run_name: plane_run
+    batch_size: 16
+    gpu: 0
+  - name: Trace
+    run_name: trace_run
+    gpu: 1
+    batch_size: 16
+  - name: FaceFour
+    run_name: facefour_run
+    batch_size: 16
+    gpu: 6
+  - name: Chinatown
+    run_name: chinatown_run
+    batch_size: 20
+    gpu: 7
+  - name: SwedishLeaf
+    run_name: SwedishLeaf_run
+    batch_size: 16
+    gpu: 4
+
+loss_variants:
+  - name: mse
+    loss_type: mse
+    lambda_tv: 0.0
+    lambda_smooth: 0.0
+    run_name_suffix: mse
+  - name: tv
+    loss_type: mse_tv
+    lambda_tv: 0.01
+    lambda_smooth: 0.0
+    run_name_suffix: tv

@@ -1,0 +1,8 @@
+torch>=2.0.0
+numpy>=1.23
+pyyaml>=6.0
+tqdm>=4.66
+scikit-learn>=1.2
+matplotlib>=3.7
+sktime>=0.24.0
+scipy>=1.10

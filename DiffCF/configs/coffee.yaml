@@ -1,0 +1,67 @@
+run_name: coffee_run
+seed: 42
+
+dataset:
+  kind: ucr
+  root: /UCRArchive_2018
+  name: Coffee
+  channels: 1
+  length: 286
+  num_classes: 2
+  normalize: zscore
+  batch_size: 16
+  num_workers: 0
+
+classifier:
+  epochs: 100
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+
+
+diffusion:
+  timesteps: 1000
+  schedule: cosine
+  lr: 2.0e-4
+  epochs: 5000
+  model_channels: 64
+  depth: 3
+  ema_decay: 0.995
+  ddim_steps: 100
+  loss_type: mse_tv
+  lambda_tv: 0.01
+  lambda_smooth: 0.0
+
+sampling:
+  step_size: 0.08
+  w_cls: 1.0
+  w_dist: 1.0
+  w_smooth: 1.0
+  start_ratio: 0.2
+  max_retries: 3
+  retry_w_cls_mult: 1.5
+  retry_start_ratio_inc: 0.1
+  eta: 0.0
+  guidance_start_ratio: 0.5
+  grad_clip_norm: 1.0
+  step_size_schedule: linear
+  step_size_min_ratio: 0.2
+
+stabilization:
+  mode: grad_smooth
+  grad_smooth_sigma: 1.5
+
+
+output:
+  root: ./output
+  load_root: ./output
+  use_best_params : true
+  save_csv: true
+  save_plots: true
+  save_per_instance_csv: false
+  plot_max: 100
+
+evaluation:
+  batch_size: 32
+  plot_samples: 6
+  plot_seed: 0
+  psd_fs: 1.0
