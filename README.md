@@ -1,6 +1,6 @@
 # DiffCF — Diffusion-based Counterfactuals for Time Series
 
-This repository contains the runnable implementation for "Generating Realistic Time-Series Counterfactuals via Diffusion-Guided Sampling," submitted to ECML PKDD 2026.
+This repository contains the runnable implementation for "Generating Realistic Time-Series Counterfactuals via Diffusion-Guided Sampling," accepted by ECML PKDD 2026.
 
 High-level workflow:
 
